@@ -1,0 +1,1186 @@
+Program.Sub.ScreenSU.Start
+Gui.Form..Create
+Gui.Form..Size(5655,8580)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..BackColor(-2147483633)
+Gui.Form..MousePointer(0)
+Gui.Form..MaxButton(False)
+Gui.Form..Sizeable(False)
+Gui.Form..Event(UnLoad,Form_UnLoad)
+Gui.Form..Caption("Closed WO Variance")
+Gui.Form.dtpStart.Create(DatePicker)
+Gui.Form.dtpStart.Size(1935,285)
+Gui.Form.dtpStart.Position(180,435)
+Gui.Form.dtpStart.Event(Change,dtpStart_Change)
+Gui.Form.dtpStart.TabStop(True)
+Gui.Form.dtpStart.TabIndex(1)
+Gui.Form.dtpEnd.Create(DatePicker)
+Gui.Form.dtpEnd.Size(1935,285)
+Gui.Form.dtpEnd.Position(2505,435)
+Gui.Form.dtpEnd.Event(Change,dtpEnd_Change)
+Gui.Form.dtpEnd.TabStop(True)
+Gui.Form.dtpEnd.TabIndex(2)
+Gui.Form.lblStartDate.Create(Label,"Starting Date",True,1935,255,0,165,225,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblEndDate.Create(Label,"Ending Date",True,1935,255,0,2490,225,True,0,"Arial",8,-2147483633,0)
+Gui.Form.chkDate.Create(CheckBox)
+Gui.Form.chkDate.Size(1560,360)
+Gui.Form.chkDate.Position(3810,945)
+Gui.Form.chkDate.Caption("All Dates")
+Gui.Form.chkDate.TabStop(True)
+Gui.Form.chkDate.TabIndex(3)
+Gui.Form.tabWOVar.Create(Tab)
+Gui.Form.tabWOVar.Size(5565,7005)
+Gui.Form.tabWOVar.Position(0,1335)
+Gui.Form.tabWOVar.Anchor(15)
+Gui.Form.tabWOVar.Tabs(3)
+Gui.Form.tabWOVar.SetTab(0)
+Gui.Form.tabWOVar.Caption("By WO")
+Gui.Form.tabWOVar.SetTab(1)
+Gui.Form.tabWOVar.Caption("By Part")
+Gui.Form.tabWOVar.SetTab(2)
+Gui.Form.tabWOVar.Caption("By Sort Code")
+Gui.Form.cmdWOGen.Create(Button)
+Gui.Form.cmdWOGen.Size(1125,420)
+Gui.Form.cmdWOGen.Position(150,6060)
+Gui.Form.cmdWOGen.Parent("tabWOVar",0)
+Gui.Form.cmdWOGen.Caption("Generate")
+Gui.Form.cmdWOGen.TabStop(True)
+Gui.Form.cmdWOGen.TabIndex(13)
+Gui.Form.cmdWOGen.Event(Click,cmdGen_Click)
+Gui.Form.cmdPartGen.Create(Button)
+Gui.Form.cmdPartGen.Size(1125,420)
+Gui.Form.cmdPartGen.Position(150,6060)
+Gui.Form.cmdPartGen.Parent("tabWOVar",1)
+Gui.Form.cmdPartGen.Caption("Generate")
+Gui.Form.cmdPartGen.TabStop(True)
+Gui.Form.cmdPartGen.TabIndex(21)
+Gui.Form.cmdPartGen.Event(Click,cmdGen_Click)
+Gui.Form.cmdSortGen.Create(Button)
+Gui.Form.cmdSortGen.Size(1125,420)
+Gui.Form.cmdSortGen.Position(150,6060)
+Gui.Form.cmdSortGen.Parent("tabWOVar",2)
+Gui.Form.cmdSortGen.Caption("Generate")
+Gui.Form.cmdSortGen.TabStop(True)
+Gui.Form.cmdSortGen.TabIndex(29)
+Gui.Form.cmdSortGen.Event(Click,cmdGen_Click)
+Gui.Form.lblStartWO.Create(Label,"Starting Job",True,1935,255,0,120,150,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblStartWO.Parent("tabWOVar",0)
+Gui.Form.txtStartWO.Create(TextBox,"",True,1215,300,0,135,390,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtStartWO.TabStop(True)
+Gui.Form.txtStartWO.TabIndex(4)
+Gui.Form.txtStartWO.MaxLength(6)
+Gui.Form.txtStartWO.NumericOnly(2)
+Gui.Form.txtStartWO.Parent("tabWOVar",0)
+Gui.Form.txtStartWO.Event(Change,txtStartWO_Change)
+Gui.Form.txtStartSX.Create(TextBox,"",True,450,300,0,1425,390,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtStartSX.TabStop(True)
+Gui.Form.txtStartSX.TabIndex(5)
+Gui.Form.txtStartSX.MaxLength(3)
+Gui.Form.txtStartSX.NumericOnly(2)
+Gui.Form.txtStartSX.Parent("tabWOVar",0)
+Gui.Form.txtStartSX.Event(Change,txtStartSX_Change)
+Gui.Form.cmdBRWStartWO.Create(Button)
+Gui.Form.cmdBRWStartWO.Size(360,360)
+Gui.Form.cmdBRWStartWO.Position(1995,360)
+Gui.Form.cmdBRWStartWO.TabStop(True)
+Gui.Form.cmdBRWStartWO.TabIndex(6)
+Gui.Form.cmdBRWStartWO.Caption("^")
+Gui.Form.cmdBRWStartWO.Parent("tabWOVar",0)
+Gui.Form.cmdBRWStartWO.Event(Click,OpenBRWStartWO)
+Gui.Form.txtEndWO.Create(TextBox,"",True,1215,300,0,2610,390,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtEndWO.Parent("tabWOVar",0)
+Gui.Form.txtEndWO.MaxLength(6)
+Gui.Form.txtEndWO.NumericOnly(2)
+Gui.Form.txtEndWO.TabStop(True)
+Gui.Form.txtEndWO.TabIndex(7)
+Gui.Form.txtEndWO.Event(Change,txtEndWO_Change)
+Gui.Form.lblEndWO.Create(Label,"Ending Job",True,1935,255,0,2595,150,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblEndWO.Parent("tabWOVar",0)
+Gui.Form.txtEndSX.Create(TextBox,"",True,450,300,0,3900,390,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtEndSX.Parent("tabWOVar",0)
+Gui.Form.txtEndSX.TabStop(True)
+Gui.Form.txtEndSX.TabIndex(8)
+Gui.Form.txtEndSX.MaxLength(3)
+Gui.Form.txtEndSX.NumericOnly(2)
+Gui.Form.txtEndSX.Event(Change,txtEndSX_Change)
+Gui.Form.cmdBRWEndWO.Create(Button)
+Gui.Form.cmdBRWEndWO.Size(360,360)
+Gui.Form.cmdBRWEndWO.Position(4470,360)
+Gui.Form.cmdBRWEndWO.Parent("tabWOVar",0)
+Gui.Form.cmdBRWEndWO.TabStop(True)
+Gui.Form.cmdBRWEndWO.TabIndex(9)
+Gui.Form.cmdBRWEndWO.Caption("^")
+Gui.Form.cmdBRWEndWO.Event(Click,OpenBRWEndWO)
+Gui.Form.cmdWOAdd.Create(Button)
+Gui.Form.cmdWOAdd.Size(1125,420)
+Gui.Form.cmdWOAdd.Position(150,930)
+Gui.Form.cmdWOAdd.Parent("tabWOVar",0)
+Gui.Form.cmdWOAdd.TabStop(True)
+Gui.Form.cmdWOAdd.TabIndex(10)
+Gui.Form.cmdWOAdd.Caption("Add")
+Gui.Form.cmdWOAdd.Event(Click,cmdWOAdd_Click)
+Gui.Form.gsGCWO.Create(GsGridControl)
+Gui.Form.gsGCWO.Size(5445,4365)
+Gui.Form.gsGCWO.Position(0,1530)
+Gui.Form.gsGCWO.Parent("tabWOVar",0)
+Gui.Form.gsGCWO.Event(RowClick,gsGC_RowClick)
+Gui.Form.gsGCWO.TabStop(True)
+Gui.Form.gsGCWO.TabIndex(12)
+Gui.Form.chkAllWO.Create(CheckBox)
+Gui.Form.chkAllWO.Size(1560,360)
+Gui.Form.chkAllWO.Position(3750,930)
+Gui.Form.chkAllWO.Parent("tabWOVar",0)
+Gui.Form.chkAllWO.Caption("All Jobs")
+Gui.Form.chkAllWO.TabStop(True)
+Gui.Form.chkAllWO.TabIndex(11)
+Gui.Form.txtStartPart.Create(TextBox,"",True,2010,300,0,135,390,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtStartPart.Parent("tabWOVar",1)
+Gui.Form.txtStartPart.Event(Change,txtStartPart_Change)
+Gui.Form.txtStartPart.MaxLength(20)
+Gui.Form.txtStartPart.TabStop(True)
+Gui.Form.txtStartPart.TabIndex(14)
+Gui.Form.txtStartPart.Event(LostFocus,txtStartPart_LostFocus)
+Gui.Form.cmdBRWStartPart.Create(Button)
+Gui.Form.cmdBRWStartPart.Size(360,360)
+Gui.Form.cmdBRWStartPart.Position(2280,360)
+Gui.Form.cmdBRWStartPart.Parent("tabWOVar",1)
+Gui.Form.cmdBRWStartPart.Caption("^")
+Gui.Form.cmdBRWStartPart.Event(Click,cmdBRWStartPart_Click)
+Gui.Form.cmdBRWStartPart.TabStop(True)
+Gui.Form.cmdBRWStartPart.TabIndex(15)
+Gui.Form.lblStartPart.Create(Label,"Starting Part",True,1935,255,0,120,150,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblStartPart.Parent("tabWOVar",1)
+Gui.Form.txtEndPart.Create(TextBox,"",True,2010,300,0,2910,390,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtEndPart.Parent("tabWOVar",1)
+Gui.Form.txtEndPart.MaxLength(20)
+Gui.Form.txtEndPart.Event(Change,txtEndPart_Change)
+Gui.Form.txtEndPart.TabStop(True)
+Gui.Form.txtEndPart.TabIndex(16)
+Gui.Form.cmdBRWEndPart.Create(Button)
+Gui.Form.cmdBRWEndPart.Size(360,360)
+Gui.Form.cmdBRWEndPart.Position(5055,360)
+Gui.Form.cmdBRWEndPart.Parent("tabWOVar",1)
+Gui.Form.cmdBRWEndPart.Caption("^")
+Gui.Form.cmdBRWEndPart.Event(Click,cmdBRWEndPart_Click)
+Gui.Form.cmdBRWEndPart.TabStop(True)
+Gui.Form.cmdBRWEndPart.TabIndex(17)
+Gui.Form.lblEndPart.Create(Label,"Ending Part",True,1935,255,0,2895,150,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblEndPart.Parent("tabWOVar",1)
+Gui.Form.chkAllPart.Create(CheckBox)
+Gui.Form.chkAllPart.Size(1560,360)
+Gui.Form.chkAllPart.Position(3750,930)
+Gui.Form.chkAllPart.Parent("tabWOVar",1)
+Gui.Form.chkAllPart.Caption("All Parts")
+Gui.Form.chkAllPart.TabStop(True)
+Gui.Form.chkAllPart.TabIndex(19)
+Gui.Form.cmdPartAdd.Create(Button)
+Gui.Form.cmdPartAdd.Size(1125,420)
+Gui.Form.cmdPartAdd.Position(150,930)
+Gui.Form.cmdPartAdd.Parent("tabWOVar",1)
+Gui.Form.cmdPartAdd.TabStop(True)
+Gui.Form.cmdPartAdd.TabIndex(18)
+Gui.Form.cmdPartAdd.Caption("Add")
+Gui.Form.cmdPartAdd.Event(Click,cmdPartAdd_Click)
+Gui.Form.gsGCPart.Create(GsGridControl)
+Gui.Form.gsGCPart.Size(5445,4365)
+Gui.Form.gsGCPart.Position(0,1530)
+Gui.Form.gsGCPart.Parent("tabWOVar",1)
+Gui.Form.gsGCPart.Event(RowClick,gsGC_RowClick)
+Gui.Form.gsGCPart.TabStop(True)
+Gui.Form.gsGCPart.TabIndex(20)
+Gui.Form.txtStartSort.Create(TextBox,"",True,1215,300,0,135,390,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtStartSort.Parent("tabWOVar",2)
+Gui.Form.txtStartSort.MaxLength(10)
+Gui.Form.txtStartSort.Event(Change,txtStartSort_Change)
+Gui.Form.txtStartSort.Event(LostFocus,txtStartSort_LostFocus)
+Gui.Form.txtStartSort.TabStop(True)
+Gui.Form.txtStartSort.TabIndex(22)
+Gui.Form.lblStartSort.Create(Label,"Starting Sort Code",True,1635,255,0,120,150,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblStartSort.Parent("tabWOVar",2)
+Gui.Form.cmdBRWStartSort.Create(Button)
+Gui.Form.cmdBRWStartSort.Size(360,360)
+Gui.Form.cmdBRWStartSort.Position(1470,360)
+Gui.Form.cmdBRWStartSort.Parent("tabWOVar",2)
+Gui.Form.cmdBRWStartSort.Caption("^")
+Gui.Form.cmdBRWStartSort.Event(Click,cmdBRWStartSort_Click)
+Gui.Form.cmdBRWStartSort.TabStop(True)
+Gui.Form.cmdBRWStartSort.TabIndex(23)
+Gui.Form.txtEndSort.Create(TextBox,"",True,1215,300,0,2085,390,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtEndSort.Parent("tabWOVar",2)
+Gui.Form.txtEndSort.MaxLength(10)
+Gui.Form.txtEndSort.Event(Change,txtEndSort_Change)
+Gui.Form.txtEndSort.TabStop(True)
+Gui.Form.txtEndSort.TabIndex(24)
+Gui.Form.lblEndSort.Create(Label,"Ending Sort Code",True,1635,255,0,2070,150,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblEndSort.Parent("tabWOVar",2)
+Gui.Form.cmdBRWEndSort.Create(Button)
+Gui.Form.cmdBRWEndSort.Size(360,360)
+Gui.Form.cmdBRWEndSort.Position(3420,360)
+Gui.Form.cmdBRWEndSort.Parent("tabWOVar",2)
+Gui.Form.cmdBRWEndSort.Caption("^")
+Gui.Form.cmdBRWEndSort.Event(Click,cmdBRWEndSort_Click)
+Gui.Form.cmdBRWEndSort.TabStop(True)
+Gui.Form.cmdBRWEndSort.TabIndex(25)
+Gui.Form.cmdSortAdd.Create(Button)
+Gui.Form.cmdSortAdd.Size(1125,420)
+Gui.Form.cmdSortAdd.Position(150,930)
+Gui.Form.cmdSortAdd.Parent("tabWOVar",2)
+Gui.Form.cmdSortAdd.TabStop(True)
+Gui.Form.cmdSortAdd.TabIndex(26)
+Gui.Form.cmdSortAdd.Caption("Add")
+Gui.Form.cmdSortAdd.Event(Click,cmdSortAdd_Click)
+Gui.Form.chkAllSort.Create(CheckBox)
+Gui.Form.chkAllSort.Size(1560,360)
+Gui.Form.chkAllSort.Position(3750,930)
+Gui.Form.chkAllSort.Parent("tabWOVar",2)
+Gui.Form.chkAllSort.Caption("All Sort Codes")
+Gui.Form.chkAllSort.TabStop(True)
+Gui.Form.chkAllSort.TabIndex(27)
+Gui.Form.gsGCSort.Create(GsGridControl)
+Gui.Form.gsGCSort.Size(5445,4365)
+Gui.Form.gsGCSort.Position(0,1530)
+Gui.Form.gsGCSort.Parent("tabWOVar",2)
+Gui.Form.gsGCSort.Event(RowClick,gsGC_RowClick)
+Gui.Form.gsGCSort.TabStop(True)
+Gui.Form.gsGCSort.TabIndex(28)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Bix
+'5/15/2018
+'Load King
+'Modify WO Variance Report
+'GCG_5094_WO_Variance.g2u
+'Crystal version of WO variance report with ability to select parts and sort codes
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.CallSub(SetupGSGC)
+Gui.Form.tabWOVar.SetTab(0)
+Gui.Form..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.OpenConnection.Start
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+F.ODBC.Connection!con.OpenCompanyConnection
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {3}->{2}{1}Error Occurred {4} with description {5}{1}{1}GAB Version: {6}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Args.sOtherSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.OpenConnection.End
+
+Program.Sub.CloseConnection.Start
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {3}->{2}{1}Error Occurred {4} with description {5}{1}{1}GAB Version: {6}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Args.sOtherSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.CloseConnection.End
+
+Program.Sub.Form_UnLoad.Start
+'Get rid of DTs created
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Data.DataTable.Close("dtWO")
+F.Data.DataTable.Close("dtPart")
+F.Data.DataTable.Close("dtSort")
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.SetupGSGC.Start
+'Setup the DTs for storing ranges and the GridControls
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Data.DataTable.Create("dtWO",True)
+F.Data.DataTable.AddColumn("dtWO","Start","String")
+F.Data.DataTable.AddColumn("dtWO","End","String")
+F.Data.DataTable.Create("dtPart",True)
+F.Data.DataTable.AddColumn("dtPart","Start","String")
+F.Data.DataTable.AddColumn("dtPart","End","String")
+F.Data.DataTable.Create("dtSort",True)
+F.Data.DataTable.AddColumn("dtSort","Start","String")
+F.Data.DataTable.AddColumn("dtSort","End","String")
+
+Gui.Form.gsGCWO.AddGridviewFromDatatable("gvWO","dtWO")
+Gui.Form.gsGCPart.AddGridviewFromDatatable("gvPart","dtPart")
+Gui.Form.gsGCSort.AddGridviewFromDatatable("gvSort","dtSort")
+F.Intrinsic.Control.CallSub(LoadGSGC)
+Gui.Form.gsGCWO.MainView("gvWO")
+Gui.Form.gsGCPart.MainView("gvPart")
+Gui.Form.gsGCSort.MainView("gvSort")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.SetupGSGC.End
+
+Program.Sub.LoadGSGC.Start
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+'gsGCWO
+Gui.Form.gsGCWO.SetGridviewProperty("gvWO","MultiSelect",True)
+Gui.Form.gsGCWO.SetGridviewProperty("gvWO","AllowSort",True)
+Gui.Form.gsGCWO.SetGridviewProperty("gvWO","AllowFilter",True)
+Gui.Form.gsGCWO.SetGridviewProperty("gvWO","OptionsDetailShowDetailTabs",False)
+Gui.Form.gsGCWO.SetGridviewProperty("gvWO","OptionsViewShowGroupPanel",True)
+Gui.Form.gsGCWO.SetGridviewProperty("gvWO","EnableAppearanceEvenRow",True)
+Gui.Form.gsGCWO.SetGridviewProperty("gvWO","OptionsViewColumnAutoWidth",False)
+
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","Start","Caption","Starting Job")
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","End","Caption","Ending Job")
+
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","Start","AllowEdit",False)
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","End","AllowEdit",False)
+
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","Start","AllowFocus",False)
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","End","AllowFocus",False)
+
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","Start","MinWidth",100)
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","End","MinWidth",100)
+
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","Start","HeaderFontBold",True)
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","End","HeaderFontBold",True)
+
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","Start","HeaderHAlignment","Center")
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","End","HeaderHAlignment","Center")
+
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","Start","CellHAlignment","Center")
+Gui.Form.gsGCWO.SetColumnProperty("gvWO","End","CellHAlignment","Center")
+
+'gsGCPart
+Gui.Form.gsGCPart.SetGridviewProperty("gvPart","MultiSelect",True)
+Gui.Form.gsGCPart.SetGridviewProperty("gvPart","AllowSort",True)
+Gui.Form.gsGCPart.SetGridviewProperty("gvPart","AllowFilter",True)
+Gui.Form.gsGCPart.SetGridviewProperty("gvPart","OptionsDetailShowDetailTabs",False)
+Gui.Form.gsGCPart.SetGridviewProperty("gvPart","OptionsViewShowGroupPanel",True)
+Gui.Form.gsGCPart.SetGridviewProperty("gvPart","EnableAppearanceEvenRow",True)
+Gui.Form.gsGCPart.SetGridviewProperty("gvPart","OptionsViewColumnAutoWidth",False)
+
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","Start","Caption","Starting Part")
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","End","Caption","Ending Part")
+
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","Start","AllowEdit",False)
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","End","AllowEdit",False)
+
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","Start","AllowFocus",False)
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","End","AllowFocus",False)
+
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","Start","MinWidth",150)
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","End","MinWidth",150)
+
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","Start","HeaderFontBold",True)
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","End","HeaderFontBold",True)
+
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","Start","HeaderHAlignment","Center")
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","End","HeaderHAlignment","Center")
+
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","Start","CellHAlignment","Center")
+Gui.Form.gsGCPart.SetColumnProperty("gvPart","End","CellHAlignment","Center")
+
+'gsGCSort
+Gui.Form.gsGCSort.SetGridviewProperty("gvSort","MultiSelect",True)
+Gui.Form.gsGCSort.SetGridviewProperty("gvSort","AllowSort",True)
+Gui.Form.gsGCSort.SetGridviewProperty("gvSort","AllowFilter",True)
+Gui.Form.gsGCSort.SetGridviewProperty("gvSort","OptionsDetailShowDetailTabs",False)
+Gui.Form.gsGCSort.SetGridviewProperty("gvSort","OptionsViewShowGroupPanel",True)
+Gui.Form.gsGCSort.SetGridviewProperty("gvSort","EnableAppearanceEvenRow",True)
+Gui.Form.gsGCSort.SetGridviewProperty("gvSort","OptionsViewColumnAutoWidth",False)
+
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","Start","Caption","Starting Sort Code")
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","End","Caption","Ending Sort Code")
+
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","Start","AllowEdit",False)
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","End","AllowEdit",False)
+
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","Start","AllowFocus",False)
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","End","AllowFocus",False)
+
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","Start","MinWidth",125)
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","End","MinWidth",125)
+
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","Start","HeaderFontBold",True)
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","End","HeaderFontBold",True)
+
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","Start","HeaderHAlignment","Center")
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","End","HeaderHAlignment","Center")
+
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","Start","CellHAlignment","Center")
+Gui.Form.gsGCSort.SetColumnProperty("gvSort","End","CellHAlignment","Center")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadGSGC.End
+
+Program.Sub.txtStartWO_Change.Start
+'automatically move focus to suffix box if max characters reached
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtStartWO.Text.Length,=,6)
+	Gui.Form.txtStartSX.SetFocus
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtStartWO_Change.End
+
+Program.Sub.txtStartSX_Change.Start
+'move focus to search button or to End Job text box with data depending on conditionals
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtStartSX.Text.Length,=,3,"and",V.Screen.Form!txtStartWO.Text.Length,=,6)
+	'If Start Job and Start Suffix boxes are filled
+	F.Intrinsic.Control.If(V.Screen.Form!txtEndWO.Text,=,"","and",V.Screen.Form!txtEndSX.Text,=,"")
+		'If End Job and Suffix both are empty
+		Gui.Form.txtEndWO.Text(V.Screen.Form!txtStartWO.Text)
+		Gui.Form.txtEndSX.Text(V.Screen.Form!txtStartSX.Text)
+	F.Intrinsic.Control.EndIf
+	Gui.Form.txtEndWO.SetFocus
+F.Intrinsic.Control.ElseIf(V.Screen.Form!txtStartSX.Text.Length,=,3)
+	'If only Start Suffix box is filled
+	Gui.Form.cmdBRWStartWO.SetFocus
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtStartSX_Change.End
+
+Program.Sub.txtEndWO_Change.Start
+'automatically move focus to suffix box if max characters reached
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtEndWO.Text.Length,=,6)
+	Gui.Form.txtEndSX.SetFocus
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtEndWO_Change.End
+
+Program.Sub.txtEndSX_Change.Start
+'automatically move focus to search button if max characters reached
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtEndSX.Text.Length,=,3)
+	Gui.Form.cmdBRWEndWO.SetFocus
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtEndSX_Change.End
+
+Program.Sub.txtStartPart_Change.Start
+'automatically move focus to search button if max characters reached
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtStartPart.Text.Length,=,20)
+	Gui.Form.cmdBRWStartPart.SetFocus
+	F.Intrinsic.Control.If(V.Screen.Form!txtEndPart.Text,=,"")
+		Gui.Form.txtEndPart.Text(V.Screen.Form!txtStartPart.Text)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtStartPart_Change.End
+
+Program.Sub.txtEndPart_Change.Start
+'automatically move focus to search button if max characters reached
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtEndPart.Text.Length,=,20)
+	Gui.Form.cmdBRWEndPart.SetFocus
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtEndPart_Change.End
+
+Program.Sub.txtStartSort_Change.Start
+'automatically move focus to search button if max characters reached
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtStartSort.Text.Length,=,10)
+	Gui.Form.cmdBRWStartSort.SetFocus
+	F.Intrinsic.Control.If(V.Screen.Form!txtEndSort.Text,=,"")
+		Gui.Form.txtEndSort.Text(V.Screen.Form!txtStartSort.Text)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtStartSort_Change.End
+
+Program.Sub.txtEndSort_Change.Start
+'automatically move focus to search button if max characters reached
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtEndSort.Text.Length,=,10)
+	Gui.Form.cmdBRWEndSort.SetFocus
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtEndSort_Change.End
+
+Program.Sub.cmdWOAdd_Click.Start
+'adds Jobs and their suffixes to the WO DT
+V.Local..BulkDeclareString(sError,sSJob,sSSuf,sEJob,sESuf)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtStartWO.Text,=,"","and",V.Screen.Form!txtEndWO.Text,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+F.Intrinsic.String.Format(V.Screen.Form!txtStartWO.Text,"000000",V.Local.sSJob)
+F.Intrinsic.Control.If(V.Screen.Form!txtStartSX.Text,=,"")
+	'3 spaces
+	V.Local.sSSuf.Set("   ")
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Format(V.Screen.Form!txtStartSX.Text,"000",V.Local.sSSuf)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.String.Format(V.Screen.Form!txtEndWO.Text,"000000",V.Local.sEJob)
+F.Intrinsic.Control.If(V.Screen.Form!txtEndSX.Text,=,"")
+	'3 spaces
+	V.Local.sESuf.Set("   ")
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Format(V.Screen.Form!txtEndSX.Text,"000",V.Local.sESuf)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.String.Build("{0}-{1}",V.Local.sSJob,V.Local.sSSuf,V.Local.sSJob)
+F.Intrinsic.String.Build("{0}-{1}",V.Local.sEJob,V.Local.sESuf,V.Local.sEJob)
+
+F.Data.DataTable.AddRow("dtWO","Start",V.Local.sSJob,"End",V.Local.sEJob)
+
+Gui.Form.txtStartWO.Text("")
+Gui.Form.txtStartSX.Text("")
+Gui.Form.txtEndWO.Text("")
+Gui.Form.txtEndSX.Text("")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdWOAdd_Click.End
+
+Program.Sub.cmdPartAdd_Click.Start
+'adds Parts to Part DT
+V.Local..BulkDeclareString(sError,sSPart,sEPart)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtStartPart.Text,=,"","and",V.Screen.Form!txtEndPart.Text,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+F.Intrinsic.String.RPad(V.Screen.Form!txtStartPart.Text," ",20,V.Local.sSPart)
+F.Intrinsic.String.RPad(V.Screen.Form!txtEndPart.Text," ",20,V.Local.sEPart)
+
+F.Data.DataTable.AddRow("dtPart","Start",V.Local.sSPart,"End",V.Local.sEPart)
+
+Gui.Form.txtStartPart.Text("")
+Gui.Form.txtEndPart.Text("")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdPartAdd_Click.End
+
+Program.Sub.cmdSortAdd_Click.Start
+'adds Sort Codes to Sort DT
+V.Local..BulkDeclareString(sError,sSSort,sESort)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtStartSort.Text,=,"","and",V.Screen.Form!txtEndSort.Text,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+F.Intrinsic.String.RPad(V.Screen.Form!txtStartSort.Text," ",10,V.Local.sSSort)
+F.Intrinsic.String.RPad(V.Screen.Form!txtEndSort.Text," ",10,V.Local.sESort)
+
+F.Data.DataTable.AddRow("dtSort","Start",V.Local.sSSort,"End",V.Local.sESort)
+
+Gui.Form.txtStartSort.Text("")
+Gui.Form.txtEndSort.Text("")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdSortAdd_Click.End
+
+Program.Sub.txtStartSort_LostFocus.Start
+'automatically fill in Ending Sort if empty
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtEndSort.Text,=,"")
+	Gui.Form.txtEndSort.Text(V.Screen.Form!txtStartSort.Text)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtStartSort_LostFocus.End
+
+Program.Sub.txtStartPart_LostFocus.Start
+'automatically fill in Ending Part if empty
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtEndPart.Text,=,"")
+	Gui.Form.txtEndPart.Text(V.Screen.Form!txtStartPart.Text)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtStartPart_LostFocus.End
+
+Program.Sub.OpenBRWStartWO.Start
+'Opens browser to choose between closed WO's
+V.Local..BulkDeclareString(sError,sRet,sSQL)
+V.Local..BulkDeclareDate(dStart,dEnd)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!chkDate.Value,=,0)
+	V.Local.dStart.Set(V.Screen.Form!dtpStart.Value)
+	V.Local.dEnd.Set(V.Screen.Form!dtpEnd.Value)
+	F.Intrinsic.String.Build("between '{0}' and '{1}'",V.Local.dStart.PervasiveDate,V.Local.dEnd.PervasiveDate,V.Local.sSQL)
+F.Intrinsic.Control.Else
+	V.Local.sSQL.Set("<> '1900-01-01'")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("select JOB, SUFFIX, DATE_CLOSED from V_JOB_HEADER where DATE_CLOSED {0} order by JOB, SUFFIX",V.Local.sSQL,V.Local.sSQL)
+F.Intrinsic.Control.CallSub(OpenConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+F.Intrinsic.UI.Browser("Closed WOs","con",V.Local.sSQL,"Job*!*Suffix*!*Date Closed","20*!*10*!*25",V.Local.sRet)
+F.Intrinsic.Control.CallSub(CloseConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+
+F.Intrinsic.Control.If(V.Local.sRet.IsCancel,=,False)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.Form.txtStartWO.Text(V.Local.sRet(0))
+	Gui.Form.txtStartSX.Text(V.Local.sRet(1))
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.OpenBRWStartWO.End
+
+Program.Sub.OpenBRWEndWO.Start
+'Opens browser to choose between closed WO's
+V.Local..BulkDeclareString(sError,sRet,sSQL)
+V.Local..BulkDeclareDate(dStart,dEnd)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!chkDate.Value,=,0)
+	V.Local.dStart.Set(V.Screen.Form!dtpStart.Value)
+	V.Local.dEnd.Set(V.Screen.Form!dtpEnd.Value)
+	F.Intrinsic.String.Build("between '{0}' and '{1}'",V.Local.dStart.PervasiveDate,V.Local.dEnd.PervasiveDate,V.Local.sSQL)
+F.Intrinsic.Control.Else
+	V.Local.sSQL.Set("<> '1900-01-01'")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("select JOB, SUFFIX, DATE_CLOSED from V_JOB_HEADER where DATE_CLOSED {0} order by JOB, SUFFIX",V.Local.sSQL,V.Local.sSQL)
+F.Intrinsic.Control.CallSub(OpenConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+F.Intrinsic.UI.Browser("Closed WOs","con",V.Local.sSQL,"Job*!*Suffix*!*Date Closed","20*!*10*!*25",V.Local.sRet)
+F.Intrinsic.Control.CallSub(CloseConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+
+F.Intrinsic.Control.If(V.Local.sRet.IsCancel,=,False)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.Form.txtEndWO.Text(V.Local.sRet(0))
+	Gui.Form.txtEndSX.Text(V.Local.sRet(1))
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.OpenBRWEndWO.End
+
+Program.Sub.cmdBRWStartPart_Click.Start
+'Opens browser to choose between Parts
+V.Local..BulkDeclareString(sError,sRet)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.CallSub(OpenConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+F.Intrinsic.UI.Browser(100,"",V.Local.sRet)
+F.Intrinsic.Control.CallSub(CloseConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+
+F.Intrinsic.Control.If(V.Local.sRet.IsCancel,=,False)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	F.Intrinsic.String.RPad(V.Local.sRet(0)," ",17,V.Local.sRet(0))
+	F.Intrinsic.String.Build("{0}{1}",V.Local.sRet(0),V.Local.sRet(1),V.Local.sRet(0))
+	Gui.Form.txtStartPart.Text(V.Local.sRet(0))
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdBRWStartPart_Click.End
+
+Program.Sub.cmdBRWEndPart_Click.Start
+'Opens browser to choose between Parts
+V.Local..BulkDeclareString(sError,sRet)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.CallSub(OpenConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+F.Intrinsic.UI.Browser(100,"",V.Local.sRet)
+F.Intrinsic.Control.CallSub(CloseConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+
+F.Intrinsic.Control.If(V.Local.sRet.IsCancel,=,False)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	F.Intrinsic.String.RPad(V.Local.sRet(0)," ",17,V.Local.sRet(0))
+	F.Intrinsic.String.Build("{0}{1}",V.Local.sRet(0),V.Local.sRet(1),V.Local.sRet(0))
+	Gui.Form.txtEndPart.Text(V.Local.sRet(0))
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdBRWEndPart_Click.End
+
+Program.Sub.cmdBRWStartSort_Click.Start
+'Opens browser to choose between closed WO's
+V.Local..BulkDeclareString(sError,sRet)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.CallSub(OpenConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+F.Intrinsic.UI.Browser("Sort Codes","con","select distinct CODE_SORT from V_INVENTORY_MSTR where CODE_SORT <> '' order by CODE_SORT","Sort Code","10",V.Local.sRet)
+F.Intrinsic.Control.CallSub(CloseConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+
+F.Intrinsic.Control.If(V.Local.sRet.IsCancel,=,False)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.Form.txtStartSort.Text(V.Local.sRet(0))
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdBRWStartSort_Click.End
+
+Program.Sub.cmdBRWEndSort_Click.Start
+'Opens browser to choose between closed WO's
+V.Local..BulkDeclareString(sError,sRet)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.CallSub(OpenConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+F.Intrinsic.UI.Browser("Sort Codes","con","select distinct CODE_SORT from V_INVENTORY_MSTR where CODE_SORT <> '' order by CODE_SORT","Sort Code","10",V.Local.sRet)
+F.Intrinsic.Control.CallSub(CloseConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+
+F.Intrinsic.Control.If(V.Local.sRet.IsCancel,=,False)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.Form.txtEndSort.Text(V.Local.sRet(0))
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdBRWEndSort_Click.End
+
+Program.Sub.cmdGen_Click.Start
+'Pull data from Job Operations and Job Header based on Parts selected
+V.Local..BulkDeclareString(sError,sSQL,sSPart,sEPart,sSJob,sSSuf,sEJob,sESuf,sSSort,sESort,sParams,sValues,sSelect,sDate)
+V.Local..BulkDeclareDate(dStart,dEnd)
+V.Local..BulkDeclareLong(iCnt,iPart)
+V.Local.sName.Declare(String,"GCG_5094_WO_VAR.RPT")
+V.Local.iWOTab.Declare(Long,0)
+V.Local.iPartTab.Declare(Long,1)
+V.Local.iSortTab.Declare(Long,2)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!chkDate.Value,=,0)
+	V.Local.dStart.Set(V.Screen.Form!dtpStart.Value)
+	V.Local.dEnd.Set(V.Screen.Form!dtpEnd.Value)
+	F.Intrinsic.String.Build("between '{0}' and '{1}'",V.Local.dStart.PervasiveDate,V.Local.dEnd.PervasiveDate,V.Local.sDate)
+F.Intrinsic.Control.Else
+	V.Local.sDate.Set("<> '1900-01-01'")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.Form!tabWOVar.Tab,=,V.Local.iWOTab,"and",V.DataTable.dtWO.RowCount,=,0)
+	F.Intrinsic.Control.If(V.Screen.Form!chkAllWO.Value,=,1)
+		F.Intrinsic.Control.CallSub(GetAllWOs,"sDate",V.Local.sDate)
+	F.Intrinsic.Control.Else
+		'If no WO ranges and 'All Jobs' not checked, exit sub
+		F.Intrinsic.UI.Msgbox("No Jobs selected. Exiting operation.")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ElseIf(V.Screen.Form!tabWOVar.Tab,=,V.Local.iPartTab,"and",V.DataTable.dtPart.RowCount,=,0)
+	F.Intrinsic.Control.If(V.Screen.Form!chkAllPart.Value,=,1)
+		F.Intrinsic.Control.CallSub(GetAllWOs,"sDate",V.Local.sDate)
+	F.Intrinsic.Control.Else
+		'If no Part ranges and 'All Parts' not checked, exit sub
+		F.Intrinsic.UI.Msgbox("No Parts selected. Exiting operation.")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ElseIf(V.Screen.Form!tabWOVar.Tab,=,V.Local.iSortTab,"and",V.DataTable.dtSort.RowCount,=,0)
+	F.Intrinsic.Control.If(V.Screen.Form!chkAllSort.Value,=,1)
+		F.Intrinsic.Control.CallSub(GetAllWOs,"sDate",V.Local.sDate)
+	F.Intrinsic.Control.Else	
+		'If no Sort code ranges and 'All Sort Codes' not checked, exit sub
+		F.Intrinsic.UI.Msgbox("No Sort Codes selected. Exiting operation.")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ElseIf(V.Screen.Form!tabWOVar.Tab,=,V.Local.iWOTab,"and",V.Screen.Form!chkAllWO.Value,=,1)
+	F.Intrinsic.Control.CallSub(GetAllWOs,"sDate",V.Local.sDate)
+F.Intrinsic.Control.ElseIf(V.Screen.Form!tabWOVar.Tab,=,V.Local.iPartTab,"and",V.Screen.Form!chkAllPart.Value,=,1)
+	F.Intrinsic.Control.CallSub(GetAllWOs,"sDate",V.Local.sDate)
+F.Intrinsic.Control.ElseIf(V.Screen.Form!tabWOVar.Tab,=,V.Local.iSortTab,"and",V.Screen.Form!chkAllSort.Value,=,1)
+	F.Intrinsic.Control.CallSub(GetAllWOs,"sDate",V.Local.sDate)
+F.Intrinsic.Control.Else
+	Gui.Form..Enabled(False)
+	F.Intrinsic.String.Build("select JOB, SUFFIX, DATE_CLOSED, PART, CODE_SORT from V_JOB_HEADER where DATE_CLOSED {0} order by JOB, SUFFIX;",V.Local.sDate,V.Local.sSQL)
+	'if current tab's 'All' checkbox not checked
+	F.Intrinsic.Control.CallSub(OpenConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+	'Pull whole Operations table and filtered Job Header
+	F.Data.DataTable.CreateFromSQL("dtOp","con","select JOB+SUFFIX+SEQ as JOBSUFSEQ, JOB, SUFFIX, SEQ, LMO, DESCRIPTION, HOURS_ESTIMATED, HOURS_ACTUAL, DOLLARS_ESTIMATED, DOLLARS_ACTUAL, PART as RM, '' as RM_SORT from V_JOB_OPERATIONS where SEQ < '995000' and LMO in ('L', 'M', 'O') order by JOB, SUFFIX, SEQ;")
+	'Filter job header to get closed jobs in the date range
+	F.Data.DataTable.CreateFromSQL("dtJob","con",V.Local.sSQL)
+	F.Data.Dictionary.CreateFromSQL("dictPart","con","select PART, CODE_SORT from V_INVENTORY_MSTR;")
+	F.Intrinsic.Control.CallSub(CloseConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+	'Create Master table
+	F.Data.Linq.Join("InnerJoin","DataTable","dtJob*!*Job","DataTable","dtOp*!*Op","Job.JOB=Op.JOB AND Job.SUFFIX=Op.SUFFIX","Op.JOBSUFSEQ*!*Job.JOB*!*Job.SUFFIX*!*Op.SEQ*!*Op.LMO*!*Op.DESCRIPTION*!*Job.DATE_CLOSED*!*Op.HOURS_ESTIMATED*!*Op.HOURS_ACTUAL*!*Op.DOLLARS_ESTIMATED*!*Op.DOLLARS_ACTUAL*!*Job.PART*!*Job.CODE_SORT*!*Op.RM*!*Op.RM_SORT","","","Job.JOB DESC, Job.SUFFIX DESC, Op.SEQ DESC","dtJobMstr",True)
+	F.Data.DataTable.Close("dtJob")
+	F.Data.DataTable.Close("dtOp")
+	F.Intrinsic.Control.If(V.DataTable.dtJobMstr.RowCount,=,0)
+		F.Intrinsic.UI.Msgbox("Error in generating Master Table. Exiting operation")
+		F.Data.Dictionary.Close("dictPart")
+		F.Data.DataTable.Close("dtJobMstr")
+		Gui.Form..Enabled(True)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	F.Data.Dictionary.SetDefaultReturn("dictPart","")
+	'fill sort codes
+	F.Data.DataTable.FillFromDictionary("dtJobMstr","dictPart","PART","CODE_SORT")
+	F.Data.DataTable.FillFromDictionary("dtJobMstr","dictPart","RM","RM_SORT")
+	F.Data.Dictionary.Close("dictPart")
+	'filter by WOs
+	F.Intrinsic.Control.If(V.Screen.Form!tabWOVar.Tab,=,V.Local.iWOTab)
+		F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtWO.RowCount--,1)
+			'Parse Start WO/Suf and End WO/Suf
+			F.Intrinsic.String.RPad(V.DataTable.dtWO(V.Local.iCnt).Start!FieldValTrim," ",10,V.Local.sSJob)
+			F.Intrinsic.String.RPad(V.DataTable.dtWO(V.Local.iCnt).End!FieldValTrim," ",10,V.Local.sEJob)
+			F.Intrinsic.String.Right(V.Local.sSJob,3,V.Local.sSSuf)
+			F.Intrinsic.String.Right(V.Local.sEJob,3,V.Local.sESuf)
+			F.Intrinsic.String.Left(V.Local.sSJob,6,V.Local.sSJob)
+			F.Intrinsic.String.Left(V.Local.sEJob,6,V.Local.sEJob)
+			'Build Data Table for WOs, close dataview and set PK to JOBSUFSEQ
+			F.Intrinsic.String.Build("JOB >= '{0}' and JOB <= '{1}' and SUFFIX >= '{2}' and SUFFIX <= '{3}'",V.Local.sSJob,V.Local.sEJob,V.Local.sSSuf,V.Local.sESuf,V.Local.sSelect)
+			F.Data.DataView.Create("dtJobMstr","dvJobMstrWOs",22,V.Local.sSelect,"")
+			F.Intrinsic.Control.If(V.DataView.dtJobMstr!dvJobMstrWOs.RowCount,!=,0)
+				'Check that the dataview is not empty
+				F.Data.DataView.ToDataTable("dtJobMstr","dvJobMstrWOs","dtWOVarTemp",True)
+				F.Data.DataTable.SetPK("dtWOVarTemp","JOBSUFSEQ")
+				'Check if Final DT exists and create it if it doesn't
+				F.Intrinsic.Control.If(V.DataTable.dtWOVar.Exists,=,False)
+					F.Data.DataTable.Clone("dtWOVarTemp","dtWOVar",True)
+					F.Data.DataTable.SetPK("dtWOVar","JOBSUFSEQ")
+				F.Intrinsic.Control.EndIf
+				'Merge the temp DT into the main one
+				F.Data.DataTable.Merge("dtWOVarTemp","dtWOVar",False,4)
+				F.Data.DataTable.Close("dtWOVarTemp")
+			F.Intrinsic.Control.EndIf
+			F.Data.DataView.Close("dtJobMstr","dvJobMstrWOs")
+		F.Intrinsic.Control.Next(V.Local.iCnt)
+	'filter by parts
+	F.Intrinsic.Control.ElseIf(V.Screen.Form!tabWOVar.Tab,=,V.Local.iPartTab)
+		F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtPart.RowCount--,1)
+			'Parse Start Part and End Part
+			F.Intrinsic.String.RPad(V.DataTable.dtPart(V.Local.iCnt).Start!FieldValTrim," ",20,V.Local.sSPart)
+			F.Intrinsic.String.RPad(V.DataTable.dtPart(V.Local.iCnt).End!FieldValTrim," ",20,V.Local.sEPart)
+			'Build Data Table for Finished Goods, close the dataview and set the PK to JOBSUFSEQ
+			F.Intrinsic.String.Build("PART >= '{0}' and PART <= '{1}'",V.Local.sSPart,V.Local.sEPart,V.Local.sSelect)
+			F.Data.DataView.Create("dtJobMstr","dvJobMstrFGs",22,V.Local.sSelect,"")
+			F.Intrinsic.Control.If(V.DataView.dtJobMstr!dvJobMstrFGs.RowCount,!=,0)
+				'Check that dataview is not empty
+				F.Data.DataView.ToDataTable("dtJobMstr","dvJobMstrFGs","dtWOVarTemp",True)
+				F.Data.DataTable.SetPK("dtWOVarTemp","JOBSUFSEQ")
+				'Check if Final DT exists and create it if it doesn't
+				F.Intrinsic.Control.If(V.DataTable.dtWOVar.Exists,=,False)
+					F.Data.DataTable.Clone("dtWOVarTemp","dtWOVar",True)
+					F.Data.DataTable.SetPK("dtWOVar","JOBSUFSEQ")
+				F.Intrinsic.Control.EndIf
+				'Merge the temp DT into the main one
+				F.Data.DataTable.Merge("dtWOVarTemp","dtWOVar",False,4)
+				F.Data.DataTable.Close("dtWOVarTemp")
+			F.Intrinsic.Control.EndIf
+			F.Data.DataView.Close("dtJobMstr","dvJobMstrFGs")
+			'Now to filter through the RMs
+			F.Intrinsic.String.Build("RM >= '{0}' and RM <= '{1}' and LMO = 'M'",V.Local.sSPart,V.Local.sEPart,V.Local.sSelect)
+			F.Data.DataView.Create("dtJobMstr","dvJobMstrRMs",22,V.Local.sSelect,"")
+			'check if any jobs exist
+			F.Intrinsic.Control.For(V.Local.iPart,0,V.DataView.dtJobMstr!dvJobMstrRMs.RowCount--,1)
+				'if the loop opens that means theres jobs with a RM in the part range. Go ahead and filter by that job and merge it into the final DT
+				F.Intrinsic.String.Build("JOB = '{0}' and SUFFIX = '{1}'",V.DataView.dtJobMstr!dvJobMstrRMs(V.Local.iPart).JOB!FieldVal,V.DataView.dtJobMstr!dvJobMstrRMs(V.Local.iPart).SUFFIX!FieldVal,V.Local.sSelect)
+				F.Data.DataView.Create("dtJobMstr","dvJobMstrRMJobs",22,V.Local.sSelect,"")
+				F.Intrinsic.Control.If(V.DataView.dtJobMstr!dvJobMstrRMJobs.RowCount,!=,0)
+					F.Data.DataView.ToDataTable("dtJobMstr","dvJobMstrRMJobs","dtWOVarTemp",True)
+					F.Data.DataTable.SetPK("dtWOVarTemp","JOBSUFSEQ")
+					'Check if Final DT exists and create it if it doesn't
+					F.Intrinsic.Control.If(V.DataTable.dtWOVar.Exists,=,False)
+						F.Data.DataTable.Clone("dtWOVarTemp","dtWOVar",True)
+						F.Data.DataTable.SetPK("dtWOVar","JOBSUFSEQ")
+					F.Intrinsic.Control.EndIf
+					F.Data.DataTable.Merge("dtWOVarTemp","dtWOVar",False,4)
+					F.Data.DataTable.Close("dtWOVarTemp")
+				F.Intrinsic.Control.EndIf
+				F.Data.DataView.Close("dtJobMstr","dvJobMstrRMJobs")
+			F.Intrinsic.Control.Next(V.Local.iPart)
+			F.Data.DataView.Close("dtJobMstr","dvJobMstrRMs")
+		F.Intrinsic.Control.Next(V.Local.iCnt)
+	'filter by Sort Codes
+	F.Intrinsic.Control.ElseIf(V.Screen.Form!tabWOVar.Tab,=,V.Local.iSortTab)
+		F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtSort.RowCount--,1)
+			'Parse Start Sort Code and End Sort Code
+			F.Intrinsic.String.RPad(V.DataTable.dtSort(V.Local.iCnt).Start!FieldValTrim," ",10,V.Local.sSSort)
+			F.Intrinsic.String.RPad(V.DataTable.dtSort(V.Local.iCnt).End!FieldValTrim," ",10,V.Local.sESort)
+			'Since the Sort codes were pulled from V_INVENTORY_MSTR and put into our master DT, we can filter by them to get the FGs/WOs with the sort code
+			F.Intrinsic.String.Build("CODE_SORT >= '{0}' and CODE_SORT <= '{1}'",V.Local.sSSort,V.Local.sESort,V.Local.sSelect)
+			F.Data.DataView.Create("dtJobMstr","dvJobMstrFGsSort",22,V.Local.sSelect,"")
+			F.Intrinsic.Control.If(V.DataView.dtJobMstr!dvJobMstrFGsSort.RowCount,!=,0)
+				'Check that the dataview is not empty
+				F.Data.DataView.ToDataTable("dtJobMstr","dvJobMstrFGsSort","dtWOVarTemp",True)
+				F.Data.DataTable.SetPK("dtWOVarTemp","JOBSUFSEQ")
+				'Check if Final DT exists and create it if it doesn't
+				F.Intrinsic.Control.If(V.DataTable.dtWOVar.Exists,=,False)
+					F.Data.DataTable.Clone("dtWOVarTemp","dtWOVar",True)
+					F.Data.DataTable.SetPK("dtWOVar","JOBSUFSEQ")
+				F.Intrinsic.Control.EndIf
+				'Merge the temp DT into the main one
+				F.Data.DataTable.Merge("dtWOVarTemp","dtWOVar",False,4)
+				F.Data.DataTable.Close("dtWOVarTemp")
+			F.Intrinsic.Control.EndIf
+			F.Data.DataView.Close("dtJobMstr","dvJobMstrFGsSort")
+			'We need to do the same thing but with the raw Materials this time
+			F.Intrinsic.String.Build("RM_SORT >= '{0}' and RM_SORT <= '{1}'",V.Local.sSSort,V.Local.sESort,V.Local.sSelect)
+			F.Data.DataView.Create("dtJobMstr","dvJobMstrRMsSort",22,V.Local.sSelect,"")
+			'check if any jobs exist that have a raw material in the sort code range
+			F.Intrinsic.Control.For(V.Local.iPart,0,V.DataView.dtJobMstr!dvJobMstrRMsSort.RowCount--,1)
+				'if the loop opens that means theres jobs with a RM in the sort code range. Go ahead and filter by that job and merge it into the final DT
+				F.Intrinsic.String.Build("JOB = '{0}' and SUFFIX = '{1}'",V.DataView.dtJobMstr!dvJobMstrRMsSort(V.Local.iPart).JOB!FieldVal,V.DataView.dtJobMstr!dvJobMstrRMsSort(V.Local.iPart).SUFFIX!FieldVal,V.Local.sSelect)
+				F.Data.DataView.Create("dtJobMstr","dvJobMstrRMSortJobs",22,V.Local.sSelect,"")
+				F.Intrinsic.Control.If(V.DataView.dtJobMstr!dvJobMstrRMSortJobs.RowCount,!=,0)
+					F.Data.DataView.ToDataTable("dtJobMstr","dvJobMstrRMSortJobs","dtWOVarTemp",True)
+					F.Data.DataTable.SetPK("dtWOVarTemp","JOBSUFSEQ")
+					'Check if Final DT exists and create it if it doesn't
+					F.Intrinsic.Control.If(V.DataTable.dtWOVar.Exists,=,False)
+						F.Data.DataTable.Clone("dtWOVarTemp","dtWOVar",True)
+						F.Data.DataTable.SetPK("dtWOVar","JOBSUFSEQ")
+					F.Intrinsic.Control.EndIf
+					F.Data.DataTable.Merge("dtWOVarTemp","dtWOVar",False,4)
+					F.Data.DataTable.Close("dtWOVarTemp")
+				F.Intrinsic.Control.EndIf
+				F.Data.DataView.Close("dtJobMstr","dvJobMstrRMSortJobs")
+			F.Intrinsic.Control.Next(V.Local.iPart)
+		F.Intrinsic.Control.Next(V.Local.iCnt)
+	F.Intrinsic.Control.EndIf
+	'Check that final DT has some values
+	F.Intrinsic.Control.If(V.DataTable.dtWOVar.Exists,=,False)
+		F.Intrinsic.UI.Msgbox("No Work Orders found from the ranges given. Exiting operation.")
+		F.Data.DataTable.Close("dtJobMstr")
+		Gui.Form..Enabled(True)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+'Add terminal number
+F.Data.DataTable.AddColumn("dtWOVar","TERMINAL","String")
+F.Data.DataTable.SetValue("dtWOVar",-1,"TERMINAL",V.Caller.Terminal)
+'Delete old entries for terminal num
+F.Intrinsic.String.Build("delete from GCG_5094_WO_VAR where TERMINAL = '{0}';",V.Caller.Terminal,V.Local.sSQL)
+F.Intrinsic.Control.CallSub(OpenConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'Save DT to DB to be used by report
+F.Data.DataTable.SaveToDB("dtWOVar","con","GCG_5094_WO_VAR","TERMINAL*!*JOBSUFSEQ",256,"TERMINAL@!@TERMINAL*!*JOB@!@JOB*!*SUFFIX@!@SUFFIX*!*SEQ@!@SEQ*!*LMO@!@LMO*!*RM@!@PART_OP*!*DATE_CLOSED@!@DATE_CLOSED*!*HOURS_ESTIMATED@!@HOURS_ESTIMATED*!*HOURS_ACTUAL@!@HOURS_ACTUAL*!*DOLLARS_ESTIMATED@!@DOLLARS_ESTIMATED*!*DOLLARS_ACTUAL@!@DOLLARS_ACTUAL*!*PART@!@PART*!*CODE_SORT@!@CODE_SORT*!*JOBSUFSEQ@!@JOBSUFSEQ")
+F.Intrinsic.Control.CallSub(CloseConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+
+'Setup Params and Values then run custom report
+V.Local.sParams.Set("Terminal")
+V.Local.sValues.Set(V.Caller.Terminal)
+F.Global.BI.GetIDFromName(V.Local.sName,V.Local.iCnt)
+F.Global.BI.PrintReport(V.Local.iCnt,16,V.Local.sParams,V.Local.sValues,"GSView",True)
+
+F.Data.DataTable.Close("dtWOVar")
+
+F.Intrinsic.Control.CallSub(Form_UnLoad)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdGen_Click.End
+
+Program.Sub.gsGC_RowClick.Start
+'right click grid control to delete entries
+V.Local.sError.Declare(String)
+V.Local.iRet.Declare(Long)
+V.Local.iWOTab.Declare(Long,0)
+V.Local.iPartTab.Declare(Long,1)
+V.Local.iSortTab.Declare(Long,2)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Args.Button,=,"Left")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.UI.Msgbox("Do you want to delete this entry?","",4,V.Local.iRet)
+F.Intrinsic.Control.If(V.Local.iRet,=,6)
+	'check active tab to see which grid control/datatable that the entry needs to be deleted from
+	F.Intrinsic.Control.If(V.Screen.Form!tabWOVar.Tab,=,V.Local.iWOTab)
+		F.Data.DataTable.DeleteRow("dtWO",V.Args.RowIndex)
+	F.Intrinsic.Control.ElseIf(V.Screen.Form!tabWOVar.Tab,=,V.Local.iPartTab)
+		F.Data.DataTable.DeleteRow("dtPart",V.Args.RowIndex)
+	F.Intrinsic.Control.ElseIf(V.Screen.Form!tabWOVar.Tab,=,V.Local.iSortTab)
+		F.Data.DataTable.DeleteRow("dtSort",V.Args.RowIndex)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.gsGC_RowClick.End
+
+Program.Sub.dtpStart_Change.Start
+'Set Start date to end date if it is after it
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!dtpStart.Value,>,V.Screen.Form!dtpEnd.Value)
+	Gui.Form.dtpStart.Value(V.Screen.Form!dtpEnd.Value)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.dtpStart_Change.End
+
+Program.Sub.dtpEnd_Change.Start
+'Set End date to start date if it is before it
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!dtpEnd.Value,<,V.Screen.Form!dtpStart.Value)
+	Gui.Form.dtpEnd.Value(V.Screen.Form!dtpStart.Value)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.dtpEnd_Change.End
+
+Program.Sub.GetAllWOs.Start
+'If the active tab has the 'All' checkbox checked for WO/Part/Sort, this function will run to get all the WOs in the date range
+V.Local..BulkDeclareString(sError,sSQL)
+F.Intrinsic.Control.Try
+
+Gui.Form..Enabled(False)
+F.Intrinsic.Control.CallSub(OpenConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+'Pull all closed jobs and combine the two tables
+F.Intrinsic.String.Build("select JOB, SUFFIX, DATE_CLOSED, PART, CODE_SORT from V_JOB_HEADER where DATE_CLOSED {0};",V.Args.sDate,V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtJob","con",V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtOp","con","select JOB+SUFFIX+SEQ as JOBSUFSEQ, JOB, SUFFIX, SEQ, LMO, DESCRIPTION, HOURS_ESTIMATED, HOURS_ACTUAL, DOLLARS_ESTIMATED, DOLLARS_ACTUAL, PART as RM from V_JOB_OPERATIONS where SEQ < '995000' and LMO in ('L', 'M', 'O');")
+F.Data.Dictionary.CreateFromSQL("dictPart","con","select PART, CODE_SORT from V_INVENTORY_MSTR;")
+F.Intrinsic.Control.CallSub(CloseConnection,"sOtherSubroutine",V.Ambient.CurrentSubroutine)
+F.Data.Linq.Join("InnerJoin","DataTable","dtJob*!*Job","DataTable","dtOp*!*Op","Job.JOB=Op.JOB AND Job.SUFFIX=Op.SUFFIX","Op.JOBSUFSEQ*!*Job.JOB*!*Job.SUFFIX*!*Op.SEQ*!*Op.LMO*!*Op.DESCRIPTION*!*Job.DATE_CLOSED*!*Op.HOURS_ESTIMATED*!*Op.HOURS_ACTUAL*!*Op.DOLLARS_ESTIMATED*!*Op.DOLLARS_ACTUAL*!*Job.PART*!*Job.CODE_SORT*!*Op.RM","","","Job.PART DESC","dtWOVar",True)
+F.Intrinsic.Control.If(V.DataTable.dtWOVar.RowCount,=,0)
+	F.Intrinsic.UI.Msgbox("No Work Orders found. Exiting operation.")
+	F.Data.DataTable.Close("dtJob")
+	F.Data.DataTable.Close("dtOp")
+	F.Data.Dictionary.Close("dictPart")
+	F.Data.DataTable.Close("dtWOVar")
+	Gui.Form..Enabled(True)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+F.Data.Dictionary.SetDefaultReturn("dictPart","")
+F.Data.DataTable.FillFromDictionary("dtWOVar","dictPart","PART","CODE_SORT")
+F.Data.DataTable.Close("dtJob")
+F.Data.DataTable.Close("dtOp")
+F.Data.Dictionary.Close("dictPart")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.GetAllWOs.End
